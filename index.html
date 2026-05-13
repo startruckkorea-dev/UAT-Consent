@@ -804,11 +804,11 @@ async function boot(account) {
     const _cfg = await loadSystemConfig();
     if (_cfg) {
       // 문의 이메일 업데이트
-      const _contact = cfgVal(_cfg,'PC_CONTACT',cfgVal(_cfg,'CONTACT_EMAIL',{email:''}));
+      const _contact = cfgVal(_cfg,'UC_CONTACT',cfgVal(_cfg,'PC_CONTACT',{email:''}));
       const _pcEl = document.getElementById('pc-contact-email');
       if(_pcEl && _contact.email) _pcEl.textContent='문의: '+_contact.email;
       // 관리자 계정 업데이트
-      const _adminList = cfgEmails(_cfg,['PC_ADMIN_1','ADMIN_SP']);
+      const _adminList = cfgEmails(_cfg,['UC_ADMIN_1','UC_ADMIN_2','UC_ADMIN_3','UC_ADMIN_4','UC_ADMIN_5']);
       if(_adminList.length) ADMIN_EMAILS.splice(0,ADMIN_EMAILS.length,..._adminList);
     }
   } catch(e) { console.warn('[Config] 로드 실패:', e.message); }
