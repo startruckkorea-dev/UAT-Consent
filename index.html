@@ -129,6 +129,35 @@ canvas#sig-canvas{display:block;touch-action:none}
 .admin-empty{text-align:center;padding:48px;color:#94a3b8;font-size:.85rem}
 
 
+/* ── System Selection Screen ── */
+#sys-select-screen{display:none;padding:32px 0 60px}
+.sel-hdr{background:linear-gradient(135deg,#0f2744 0%,#1a5fa8 100%);border-radius:16px;padding:24px 24px 20px;margin-bottom:20px}
+.sel-hdr-label{display:inline-block;background:rgba(255,255,255,.18);border-radius:5px;padding:3px 9px;font-size:.66rem;font-weight:700;color:#fff;letter-spacing:.6px;margin-bottom:10px}
+.sel-hdr-title{font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:6px}
+.sel-hdr-desc{font-size:.78rem;color:rgba(255,255,255,.75);line-height:1.7}
+.sel-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px}
+@media(max-width:480px){.sel-grid{grid-template-columns:1fr}}
+.sel-item{background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:13px 15px;cursor:pointer;transition:all .18s;user-select:none;display:flex;align-items:center;gap:11px}
+.sel-item:hover{border-color:#0078d4;box-shadow:0 2px 8px rgba(0,120,212,.12)}
+.sel-item.checked{border-color:#0078d4;background:#eff6ff;box-shadow:0 2px 8px rgba(0,120,212,.12)}
+.sel-cb{width:18px;height:18px;border:2px solid #cbd5e0;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:#fff}
+.sel-item.checked .sel-cb{background:#0078d4;border-color:#0078d4;color:#fff}
+.sel-cb-mark{font-size:.7rem;font-weight:900;display:none}
+.sel-item.checked .sel-cb-mark{display:block}
+.sel-badge{background:#1a3c6e;color:#fff;border-radius:5px;padding:3px 8px;font-size:.62rem;font-weight:800;letter-spacing:.5px;flex-shrink:0;min-width:38px;text-align:center}
+.sel-info{flex:1;min-width:0}
+.sel-name{font-size:.83rem;font-weight:700;color:#1e293b;margin-bottom:1px}
+.sel-desc{font-size:.68rem;color:#94a3b8;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sel-all-row{display:flex;align-items:center;gap:8px;padding:10px 13px;background:#f8fafc;border-radius:9px;cursor:pointer;margin-bottom:14px;border:1px solid #e2e8f0}
+.sel-all-row:hover{background:#eff6ff;border-color:#bfdbfe}
+.sel-all-cb{width:16px;height:16px;border:2px solid #cbd5e0;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;font-size:.65rem;font-weight:900;transition:all .15s}
+.sel-all-cb.on{background:#0078d4;border-color:#0078d4;color:#fff}
+.sel-all-label{font-size:.8rem;font-weight:600;color:#475569}
+.sel-count{font-size:.72rem;color:#94a3b8;margin-left:auto}
+.btn-start{width:100%;padding:13px;background:#0078d4;color:#fff;border:none;border-radius:10px;font-size:.92rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn-start:hover{background:#0062b1}
+.btn-start:disabled{background:#cbd5e0;cursor:not-allowed}
+
 /* ── Loading ── *//* ── Loading ── */
 #loading{display:none;position:fixed;inset:0;background:rgba(255,255,255,.75);align-items:center;justify-content:center;z-index:999;backdrop-filter:blur(3px)}
 #loading.show{display:flex}
@@ -233,6 +262,68 @@ canvas#sig-canvas{display:block;touch-action:none}
       <div class="done-icon">✅</div>
       <div class="done-title">이미 UAT 확인서를 제출하셨습니다</div>
       <div class="done-sub" id="already-date"></div>
+    </div>
+
+    <!-- 시스템 선택 화면 -->
+    <div id="sys-select-screen">
+      <div class="sel-hdr">
+        <div class="sel-hdr-label">UAT VERIFICATION · 2026</div>
+        <div class="sel-hdr-title">검증할 시스템을 선택해 주세요</div>
+        <div class="sel-hdr-desc">본인이 QA 담당하는 시스템만 선택하시면 됩니다.<br>선택된 시스템만 검증 폼에 표시됩니다.</div>
+      </div>
+      <div class="sel-all-row" onclick="toggleAllSys()">
+        <div class="sel-all-cb" id="sel-all-cb">✓</div>
+        <span class="sel-all-label">전체 선택</span>
+        <span class="sel-count" id="sel-count">0 / 9 선택됨</span>
+      </div>
+      <div class="sel-grid">
+        <div class="sel-item" id="selbox_s1" onclick="toggleSys('s1')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">GA</div>
+          <div class="sel-info"><div class="sel-name">General Affairs</div><div class="sel-desc">STN · BC · IDC 신청 및 결재</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s2" onclick="toggleSys('s2')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">MC</div>
+          <div class="sel-info"><div class="sel-name">Mobility Car / RR</div><div class="sel-desc">배차 신청 · 수리 보고서</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s3" onclick="toggleSys('s3')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">SCC</div>
+          <div class="sel-info"><div class="sel-name">Contract Checklist</div><div class="sel-desc">계약 체크리스트 · 결재</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s4" onclick="toggleSys('s4')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">GW</div>
+          <div class="sel-info"><div class="sel-name">Goodwill Approval</div><div class="sel-desc">Goodwill · CCR · Tech-Care</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s5" onclick="toggleSys('s5')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">BP</div>
+          <div class="sel-info"><div class="sel-name">BP Master Data</div><div class="sel-desc">BP 등록 · 변경 · BP Code</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s6" onclick="toggleSys('s6')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">FA</div>
+          <div class="sel-info"><div class="sel-name">FA Registration</div><div class="sel-desc">유형자산 등록 · 폐기 · 이관</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s7" onclick="toggleSys('s7')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">WMC</div>
+          <div class="sel-info"><div class="sel-name">Weekend Mobility Car</div><div class="sel-desc">주말 이벤트 · 쿠폰 관리</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s8" onclick="toggleSys('s8')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">IT</div>
+          <div class="sel-info"><div class="sel-name">IT Ticket System</div><div class="sel-desc">INC · PRB · CHIG · REQ</div></div>
+        </div>
+        <div class="sel-item" id="selbox_s9" onclick="toggleSys('s9')">
+          <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
+          <div class="sel-badge">APS</div>
+          <div class="sel-info"><div class="sel-name">통합결재함</div><div class="sel-desc">전체 8개 시스템 결재 처리</div></div>
+        </div>
+      </div>
+      <button class="btn-start" id="btn-start" onclick="startVerification()" disabled>검증 시작</button>
     </div>
 
     <!-- 동의서 폼 -->
@@ -701,6 +792,12 @@ async function boot(account) {
     await checkAlreadySubmitted();
   } catch(e) { console.error(e); }
   loading(false);
+  // 이미 제출하지 않은 경우 시스템 선택 화면 표시
+  if (document.getElementById('form-body').style.display !== 'none' &&
+      document.getElementById('already-done').style.display !== 'block') {
+    document.getElementById('form-body').style.display = 'none';
+    document.getElementById('sys-select-screen').style.display = 'block';
+  }
 
   // system_config_final.xlsx 로드 (try 블록 밖에서 독립 실행)
   try {
@@ -740,6 +837,50 @@ async function checkAlreadySubmitted() {
 const SYS_NAMES=['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
 const SYS_LABELS={s1:'GA (General Affairs)',s2:'MC (Mobility Car / RR)',s3:'SCC (Contract Checklist)',s4:'GW (Goodwill Approval)',s5:'BP (BP Master Data)',s6:'FA (FA Registration)',s7:'WMC (Weekend Mobility Car)',s8:'IT (IT Ticket)',s9:'APS (통합결재함)',r_final:'최종 확인'};
 
+// ── 시스템 선택 ──
+let selectedSystems = new Set();
+
+function toggleSys(id) {
+  if (selectedSystems.has(id)) { selectedSystems.delete(id); } else { selectedSystems.add(id); }
+  updateSelUI();
+}
+function toggleAllSys() {
+  if (selectedSystems.size === SYS_NAMES.length) { selectedSystems.clear(); } else { SYS_NAMES.forEach(id => selectedSystems.add(id)); }
+  updateSelUI();
+}
+function updateSelUI() {
+  SYS_NAMES.forEach(id => {
+    const box = document.getElementById('selbox_' + id);
+    if (!box) return;
+    if (selectedSystems.has(id)) { box.classList.add('checked'); } else { box.classList.remove('checked'); }
+  });
+  const cnt = selectedSystems.size;
+  const total = SYS_NAMES.length;
+  document.getElementById('sel-count').textContent = cnt + ' / ' + total + ' 선택됨';
+  const allCb = document.getElementById('sel-all-cb');
+  if (cnt === total) { allCb.classList.add('on'); allCb.textContent = '✓'; }
+  else { allCb.classList.remove('on'); allCb.textContent = ''; }
+  const btn = document.getElementById('btn-start');
+  if (btn) btn.disabled = cnt === 0;
+}
+function startVerification() {
+  if (selectedSystems.size === 0) return;
+  // 선택된 시스템만 표시, 나머지 숨김
+  SYS_NAMES.forEach(id => {
+    const card = document.getElementById('card_' + id);
+    if (card) card.style.display = selectedSystems.has(id) ? '' : 'none';
+  });
+  // 선택된 시스템만 진행률 계산에 포함
+  window._activeSystems = Array.from(selectedSystems);
+  // 헤더 텍스트 업데이트
+  const progTextEl = document.getElementById('prog-text');
+  if (progTextEl) progTextEl.textContent = '0 / ' + window._activeSystems.length + ' 시스템 완료';
+  document.getElementById('sys-select-screen').style.display = 'none';
+  document.getElementById('form-body').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  upd();
+}
+
 function getVal(n){
   if(n==='r_final'){const e=document.getElementById('r_final');return e&&e.checked?'agree':null;}
   const h=document.getElementById('hv_'+n);return h?h.value:null;
@@ -751,13 +892,14 @@ function sel(rn,val){
 }
 function toggleCf(){const e=document.getElementById('r_final');if(e){e.checked=!e.checked;upd();}}
 function upd(){
-  let done=SYS_NAMES.filter(n=>getVal(n)).length;
-  const total=SYS_NAMES.length;
+  const activeSys = window._activeSystems || SYS_NAMES;
+  let done=activeSys.filter(n=>getVal(n)).length;
+  const total=activeSys.length;
   const pct=Math.round(done/(total+1)*100);
   document.getElementById('prog-fill').style.width=pct+'%';
   document.getElementById('prog-text').textContent=done+' / '+total+' 시스템 완료';
   document.getElementById('prog-pct').textContent=pct+'%';
-  SYS_NAMES.forEach(n=>{
+  activeSys.forEach(n=>{
     const v=getVal(n);
     const pill=document.getElementById('pill_'+n);
     const card=document.getElementById('card_'+n);
@@ -770,7 +912,7 @@ function upd(){
     if(bi)bi.className='sc-btn vi'+(v==='issue'?' sel':'');
     if(iss)iss.style.display=v==='issue'?'block':'none';
   });
-  const allSys=SYS_NAMES.every(n=>getVal(n));
+  const allSys=activeSys.every(n=>getVal(n));
   const sc=document.getElementById('sign-card');
   if(sc){sc.style.opacity=allSys?'1':'.45';sc.style.pointerEvents=allSys?'':'none';}
   const finalOk=!!getVal('r_final');
@@ -780,7 +922,8 @@ function upd(){
   checkSubmitReady();
 }
 function checkSubmitReady(){
-  const allDone=SYS_NAMES.every(n=>getVal(n))&&getVal('r_final');
+  const activeSys = window._activeSystems || SYS_NAMES;
+  const allDone=activeSys.every(n=>getVal(n))&&getVal('r_final');
   const ready=allDone&&isSigned;
   const btn=document.getElementById('btn-submit');
   btn.disabled=!ready;
@@ -1108,14 +1251,10 @@ async function submitForm() {
     }
 
     loading(true, '동의 내역 기록 중...');
-    const labels = {
-      r1:'C1_일반수집이용_필수', r2:'C2_일반수집이용_선택',
-      r3:'C3_고유식별수집이용', r4:'C4_민감정보수집이용',
-      r5:'C5_일반제3자제공_필수', r6:'C6_일반제3자제공_선택',
-      r7:'C7_고유식별제3자제공', r8:'C8_일반국외제공',
-      r9:'C9_고유식별국외제공', r10:'C10_최종확인'
-    };
-    const labelDisplay = SYS_LABELS;
+    const labelDisplay = {};
+    const activeSys = window._activeSystems || SYS_NAMES;
+    activeSys.forEach(k => { if (SYS_LABELS[k]) labelDisplay[k] = SYS_LABELS[k]; });
+    labelDisplay['r_final'] = SYS_LABELS['r_final'];
     // 모든 데이터를 Title(제목) 하나에 저장 - 컬럼 추가 불필요
     // Title: 255자 이내 (SharePoint 제한)
     const titleStr = ('[' + _dateStr + '] ' + user.email).substring(0, 255);
