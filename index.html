@@ -320,7 +320,7 @@ canvas#sig-canvas{display:block;touch-action:none}
         <div class="sel-item" id="selbox_s9" onclick="toggleSys('s9')">
           <div class="sel-cb"><span class="sel-cb-mark">✓</span></div>
           <div class="sel-badge">APS</div>
-          <div class="sel-info"><div class="sel-name">통합결재함</div><div class="sel-desc">전체 8개 시스템 결재 처리</div></div>
+          <div class="sel-info"><div class="sel-name">APS (Approval Processing System)</div><div class="sel-desc">STK 자체 개발 · 전체 시스템 결재 처리</div></div>
         </div>
       </div>
       <button class="btn-start" id="btn-start" onclick="startVerification()" disabled>검증 시작</button>
@@ -330,7 +330,7 @@ canvas#sig-canvas{display:block;touch-action:none}
     <div id="form-body">
       <div class="uat-hdr">
         <div class="uat-label">UAT VERIFICATION · 2026</div>
-        <div class="uat-title">STK Korea 시스템 UAT 검증 확인서</div>
+        <div class="uat-title">STK 시스템 UAT 검증 확인서</div>
         <div class="uat-desc">각 시스템을 직접 사용해보신 후 검증 결과를 선택해 주세요.<br>이슈가 있는 항목은 이슈 있음을 선택하고 내용을 기재해 주세요.</div>
         <div class="uat-pb">
           <div class="uat-pr">
@@ -505,13 +505,13 @@ canvas#sig-canvas{display:block;touch-action:none}
         <div class="sc-top">
           <div class="sc-badge">APS</div>
           <div class="sc-info">
-            <div class="sc-name">통합결재함</div>
+            <div class="sc-name">APS (Approval Processing System)</div>
             <div class="sc-url"><a href="https://aps.startruckkorea.com" target="_blank">aps.startruckkorea.com</a></div>
           </div>
           <div class="sc-pill todo" id="pill_s9">미검증</div>
         </div>
         <div class="sc-body">
-          <div class="sc-desc">전체 8개 시스템 결재 현황 통합 조회 · 직접 처리</div>
+          <div class="sc-desc">STK 자체 개발 시스템 · 전체 시스템 결재 현황 통합 조회 · 직접 처리</div>
           <div class="sc-btns">
             <div class="sc-btn" id="btnp_s9" onclick="sel('s9','pass')"><span class="sc-mark">✓</span>검증 완료</div>
             <div class="sc-btn vi" id="btni_s9" onclick="sel('s9','issue')"><span class="sc-mark">!</span>이슈 있음</div>
@@ -527,7 +527,7 @@ canvas#sig-canvas{display:block;touch-action:none}
           <div class="sgn-pill todo" id="sgn-pill">미완료</div>
         </div>
         <div class="sgn-body">
-          <div class="sgn-txt">본인은 상기 STK Korea 시스템들을 직접 사용하여 UAT 검증을 수행하였으며,<br>위에 기재한 내용이 사실임을 확인하고 전자 서명으로 제출합니다.</div>
+          <div class="sgn-txt">본인은 상기 STK 시스템들을 직접 사용하여 UAT 검증을 수행하였으며,<br>위에 기재한 내용이 사실임을 확인하고 전자 서명으로 제출합니다.</div>
           <div class="sgn-cf" id="sgn-cf" onclick="toggleCf()">
             <label for="r_final" style="cursor:pointer">상기 내용을 확인하고 서명합니다.</label>
             <input type="checkbox" id="r_final" name="r_final" onchange="upd()" onclick="event.stopPropagation()">
@@ -835,7 +835,7 @@ async function checkAlreadySubmitted() {
 // ── 진행률 ──
 
 const SYS_NAMES=['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
-const SYS_LABELS={s1:'GA (General Affairs)',s2:'MC (Mobility Car / RR)',s3:'SCC (Contract Checklist)',s4:'GW (Goodwill Approval)',s5:'BP (BP Master Data)',s6:'FA (FA Registration)',s7:'WMC (Weekend Mobility Car)',s8:'IT (IT Ticket)',s9:'APS (통합결재함)',r_final:'최종 확인'};
+const SYS_LABELS={s1:'GA (General Affairs)',s2:'MC (Mobility Car / RR)',s3:'SCC (Contract Checklist)',s4:'GW (Goodwill Approval)',s5:'BP (BP Master Data)',s6:'FA (FA Registration)',s7:'WMC (Weekend Mobility Car)',s8:'IT (IT Ticket)',s9:'APS (Approval Processing System)',r_final:'최종 확인'};
 
 // ── 시스템 선택 ──
 let selectedSystems = new Set();
