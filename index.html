@@ -895,7 +895,7 @@ function upd(){
   const activeSys = window._activeSystems || SYS_NAMES;
   let done=activeSys.filter(n=>getVal(n)).length;
   const total=activeSys.length;
-  const pct=Math.round(done/(total+1)*100);
+  const pct=total>0?Math.round(done/total*100):0;
   document.getElementById('prog-fill').style.width=pct+'%';
   document.getElementById('prog-text').textContent=done+' / '+total+' 시스템 완료';
   document.getElementById('prog-pct').textContent=pct+'%';
