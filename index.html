@@ -1,290 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>STK UAT 검증 확인서</title>
+<link rel="icon" type="image/webp" href="data:image/webp;base64,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">
+<script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.28.0/lib/msal-browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif;background:#f5f7fa;min-height:100vh;color:#1a202c}
+
+/* ── Login ── */
+#login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(145deg,#0f2744 0%,#0078d4 100%)}
+.login-card{background:#fff;border-radius:20px;padding:52px 48px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.22);max-width:400px;width:100%}
+.login-logo{width:64px;height:64px;background:linear-gradient(135deg,#0078d4,#00bcf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 20px;box-shadow:0 8px 20px rgba(0,120,212,.3)}
+.login-title{font-size:1.2rem;font-weight:700;color:#0f2744;margin-bottom:4px}
+.login-co{font-size:.82rem;color:#94a3b8;margin-bottom:28px}
+.btn-login{background:linear-gradient(135deg,#0078d4,#005a9e);color:#fff;border:none;border-radius:10px;padding:13px 0;font-size:.92rem;font-weight:600;cursor:pointer;width:100%;font-family:inherit;transition:all .2s}
+.btn-login:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,120,212,.4)}
+.btn-login:disabled{background:#cbd5e0;cursor:not-allowed;transform:none;box-shadow:none}
+#login-err{color:#e53e3e;font-size:.78rem;margin-top:10px;display:none}
+
+/* ── App ── */
+#app{display:none;min-height:100vh}
+.topnav{background:linear-gradient(90deg,#0f2744,#0a4a8a);height:54px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.nav-brand{display:flex;align-items:center;gap:9px}
+.nav-icon{width:28px;height:28px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.nav-title{font-size:.88rem;font-weight:700;color:#fff}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-user{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border-radius:20px;padding:4px 12px;border:1px solid rgba(255,255,255,.15)}
+.nav-avatar{width:22px;height:22px;background:linear-gradient(135deg,#60a5fa,#3b82f6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff}
+.nav-name{font-size:.75rem;color:rgba(255,255,255,.88);font-weight:500}
+.btn-out{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.75);cursor:pointer;font-family:inherit}
+.btn-out:hover{background:rgba(255,255,255,.1)}
+
+.page{max-width:760px;margin:0 auto;padding:28px 20px 60px}
+
+/* ── Already done screen ── */
+#already-done{display:none;text-align:center;padding:80px 20px}
+.done-icon{width:60px;height:60px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.6rem}
+.done-title{font-size:1.1rem;font-weight:700;color:#1e293b;margin-bottom:6px}
+.done-sub{font-size:.84rem;color:#64748b;line-height:1.7}
+
+/* ── Header card ── */
+.hdr-card{background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:20px;border:1px solid #e2e8f0;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.hdr-title{font-size:1.05rem;font-weight:700;color:#1e293b}
+.hdr-badge{background:#dbeafe;color:#1d4ed8;border-radius:20px;padding:3px 12px;font-size:.72rem;font-weight:600}
+.hdr-desc{font-size:.82rem;color:#64748b;line-height:1.7}
+.progress-wrap{margin-top:14px}
+.prog-label{display:flex;justify-content:space-between;font-size:.75rem;color:#64748b;margin-bottom:5px}
+.prog-bar{background:#e2e8f0;border-radius:4px;height:5px;overflow:hidden}
+.prog-fill{background:#0078d4;height:100%;border-radius:4px;transition:width .35s}
+
+/* ── Section ── */
+.section{background:#fff;border-radius:14px;margin-bottom:14px;border:1px solid #e2e8f0;box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden}
+.sec-hdr{padding:12px 18px;background:#f8fafc;display:flex;align-items:center;gap:9px;border-bottom:1px solid #f1f5f9}
+.sec-num{width:24px;height:24px;border-radius:50%;background:#dbeafe;color:#1d4ed8;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0}
+.sec-title{font-size:.88rem;font-weight:600;color:#1e293b;flex:1}
+.sec-st{font-size:.68rem;padding:2px 9px;border-radius:20px;font-weight:600}
+.sec-st.done{background:#dcfce7;color:#166534}
+.sec-st.todo{background:#fef9c3;color:#854d0e}
+.sec-body{padding:14px 18px}
+.info-box{background:#f8fafc;border-radius:8px;padding:10px 13px;margin-bottom:12px;font-size:.78rem;color:#475569;line-height:1.8;border:1px solid #f1f5f9}
+.info-box b{color:#1e293b;font-weight:600}
+.c-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #f8fafc}
+.c-row:last-child{border-bottom:none}
+.c-label{flex:1;font-size:.82rem;color:#1e293b;line-height:1.6}
+.c-label .csub{font-size:.73rem;color:#94a3b8;margin-top:2px}
+.c-label:has(.badge-opt) .csub{color:#c0392b;font-weight:500}
+.badge-req{display:inline-block;background:#fee2e2;color:#b91c1c;border-radius:20px;padding:1px 7px;font-size:.65rem;font-weight:600;margin-left:5px;vertical-align:middle}
+.badge-opt{display:inline-block;background:#f1f5f9;color:#64748b;border-radius:20px;padding:1px 7px;font-size:.65rem;font-weight:500;margin-left:5px;vertical-align:middle;border:1px solid #e2e8f0}
+.radio-wrap{display:flex;gap:10px;flex-shrink:0;padding-top:2px}
+.radio-wrap label{display:flex;align-items:center;gap:4px;font-size:.78rem;color:#475569;cursor:pointer;white-space:nowrap}
+.radio-wrap input[type=radio]{cursor:pointer;accent-color:#0078d4}
+.all-agree{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#eff6ff;border-radius:8px;cursor:pointer;margin-top:8px;border:1px solid #bfdbfe}
+.all-agree input{cursor:pointer;accent-color:#0078d4;width:15px;height:15px}
+.all-agree-label{font-size:.8rem;font-weight:600;color:#1d4ed8}
+.divider{height:1px;background:#f1f5f9;margin:10px 0}
+
+/* ── Signature ── */
+.sign-wrap{margin-top:6px}
+.sign-label{font-size:.8rem;font-weight:600;color:#1e293b;margin-bottom:8px}
+.sign-canvas-wrap{border:1.5px solid #cbd5e0;border-radius:10px;background:#fafafa;overflow:hidden;position:relative;cursor:crosshair}
+canvas#sig-canvas{display:block;touch-action:none}
+.sign-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#94a3b8;pointer-events:none}
+.sign-hint.hidden{display:none}
+.sign-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+.btn-clear{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:5px 14px;font-size:.75rem;color:#64748b;cursor:pointer;font-family:inherit}
+.btn-clear:hover{border-color:#94a3b8}
+.sign-done-wrap{display:none;text-align:center;padding:10px}
+.sign-done-img{max-width:100%;border:1px solid #e2e8f0;border-radius:8px}
+
+/* ── Submit ── */
+.submit-area{background:#fff;border-radius:14px;padding:18px 20px;border:1px solid #e2e8f0;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-top:4px}
+.submit-notice{font-size:.78rem;color:#64748b;line-height:1.7;margin-bottom:14px}
+.submit-notice b{color:#1e293b}
+.btn-submit{width:100%;padding:13px;background:#0078d4;color:#fff;border:none;border-radius:10px;font-size:.92rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn-submit:hover{background:#0062b1}
+.btn-submit:disabled{background:#cbd5e0;cursor:not-allowed}
+
+/* ── Complete ── */
+#complete-screen{display:none;text-align:center;padding:60px 20px}
+.comp-icon{width:64px;height:64px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.8rem}
+.comp-title{font-size:1.1rem;font-weight:700;color:#1e293b;margin-bottom:8px}
+.comp-sub{font-size:.84rem;color:#64748b;line-height:1.8}
+.comp-detail{background:#f8fafc;border-radius:10px;padding:14px 18px;margin-top:18px;text-align:left;font-size:.78rem;color:#475569;line-height:1.9;border:1px solid #f1f5f9}
+
+/* ── Admin ── */
+.nav-admin-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.72rem;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;transition:all .15s;display:none}
+.nav-admin-btn:hover{background:rgba(255,255,255,.25)}
+#admin-screen{display:none;padding:24px 0 60px}
+.admin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.admin-title{font-size:1rem;font-weight:700;color:#1e293b}
+.admin-badge{background:#fef9c3;color:#854d0e;border-radius:20px;padding:3px 12px;font-size:.72rem;font-weight:600;border:1px solid #fde68a}
+.admin-table-wrap{background:#fff;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.admin-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.admin-table th{padding:8px 10px;background:#f8fafc;font-weight:700;color:#64748b;text-align:left;border-bottom:1.5px solid #e2e8f0;font-size:.68rem;white-space:nowrap;cursor:default}
+.admin-table td{padding:9px 10px;border-bottom:1px solid #f1f5f9;color:#1e293b;vertical-align:middle}
+.admin-table tbody tr:last-child td{border-bottom:none}
+.admin-table tbody tr:hover td{background:#f8fafc}
+.admin-agree{color:#16a34a;font-weight:600}
+.admin-disagree{color:#dc2626}
+.admin-pdf-link{color:#0078d4;background:#fff;font-size:.75rem;padding:5px 14px;border:1px solid #bfdbfe;border-radius:20px;white-space:nowrap;font-weight:600;transition:all .15s;cursor:pointer;font-family:inherit}.admin-pdf-link:hover{background:#eff6ff}
+.admin-pdf-link:hover{background:#eff6ff}
+.admin-empty{text-align:center;padding:48px;color:#94a3b8;font-size:.85rem}
+
+
+/* ── Loading ── *//* ── Loading ── */
+#loading{display:none;position:fixed;inset:0;background:rgba(255,255,255,.75);align-items:center;justify-content:center;z-index:999;backdrop-filter:blur(3px)}
+#loading.show{display:flex}
+.loading-box{background:#fff;border-radius:14px;padding:28px 40px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.spinner{width:30px;height:30px;border:3px solid #e2e8f0;border-top:3px solid #0078d4;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-txt{font-size:.82rem;color:#475569;font-weight:500}
+
+/* ─── UAT 카드 디자인 ─── */
+.uat-hdr{background:linear-gradient(135deg,#0f2744 0%,#1a5fa8 100%);border-radius:16px;padding:24px 24px 20px;margin-bottom:16px}
+.uat-label{display:inline-block;background:rgba(255,255,255,.18);border-radius:5px;padding:3px 9px;font-size:.66rem;font-weight:700;color:#fff;letter-spacing:.6px;margin-bottom:10px}
+.uat-title{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:5px}
+.uat-desc{font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:16px}
+.uat-pb{background:rgba(0,0,0,.22);border-radius:8px;padding:11px 14px}
+.uat-pr{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.uat-pt{font-size:.75rem;color:rgba(255,255,255,.7)}
+.uat-pp{font-size:.88rem;font-weight:800;color:#fff}
+
+.sc{background:#fff;border-radius:13px;margin-bottom:9px;border:1.5px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.sc.sp{border-color:#86efac;box-shadow:0 2px 10px rgba(22,163,74,.1)}
+.sc.si{border-color:#fca5a5;box-shadow:0 2px 10px rgba(239,68,68,.1)}
+.sc-top{padding:13px 17px 10px;display:flex;align-items:center;gap:11px}
+.sc-badge{background:#1a3c6e;color:#fff;border-radius:6px;padding:5px 10px;font-size:.68rem;font-weight:800;letter-spacing:.7px;flex-shrink:0;min-width:42px;text-align:center}
+.sc-info{flex:1;min-width:0}
+.sc-name{font-size:.88rem;font-weight:700;color:#1e293b;margin-bottom:1px}
+.sc-url{font-size:.7rem;color:#0078d4}
+.sc-url a{color:inherit;text-decoration:none}
+.sc-url a:hover{text-decoration:underline}
+.sc-pill{flex-shrink:0;border-radius:20px;padding:3px 10px;font-size:.67rem;font-weight:700;border:1.5px solid transparent;transition:all .2s;white-space:nowrap}
+.sc-pill.todo{background:#fef9c3;color:#854d0e;border-color:#fde68a}
+.sc-pill.pass{background:#dcfce7;color:#166534;border-color:#86efac}
+.sc-pill.issue{background:#fee2e2;color:#b91c1c;border-color:#fca5a5}
+.sc-body{padding:0 17px 15px}
+.sc-desc{font-size:.75rem;color:#64748b;padding-bottom:11px;border-bottom:1px solid #f1f5f9;line-height:1.6}
+.sc-btns{display:flex;gap:7px;padding-top:11px}
+.sc-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 0;border-radius:9px;border:1.5px solid #e2e8f0;background:#f8fafc;cursor:pointer;font-size:.82rem;font-weight:600;color:#64748b;transition:all .18s;user-select:none;-webkit-user-select:none}
+.sc-btn:hover{border-color:#0078d4;background:#eff6ff;color:#0078d4;transform:translateY(-1px)}
+.sc-btn.vp{border-color:#16a34a;background:#f0fdf4;color:#166534;transform:none!important}
+.sc-btn.vi:hover{border-color:#dc2626;background:#fff5f5;color:#dc2626}
+.sc-btn.vi.sel{border-color:#dc2626;background:#fff5f5;color:#b91c1c;transform:none!important}
+.sc-mark{font-size:.86rem;font-weight:900}
+.sc-iss{display:none;padding-top:9px}
+.sc-ta{width:100%;border:1.5px solid #fca5a5;border-radius:8px;padding:8px 11px;font-size:.78rem;font-family:inherit;resize:vertical;background:#fff9f9;outline:none;transition:border-color .15s;min-height:50px}
+.sc-ta:focus{border-color:#ef4444}
+
+.sgn-card{background:#fff;border-radius:13px;border:1.5px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden;margin-bottom:9px;transition:opacity .3s}
+.sgn-hdr{padding:13px 17px 11px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f1f5f9}
+.sgn-title{font-size:.88rem;font-weight:700;color:#1e293b}
+.sgn-pill{border-radius:20px;padding:3px 10px;font-size:.67rem;font-weight:700;border:1.5px solid transparent}
+.sgn-pill.todo{background:#fef9c3;color:#854d0e;border-color:#fde68a}
+.sgn-pill.done{background:#dcfce7;color:#166534;border-color:#86efac}
+.sgn-body{padding:15px 17px 18px}
+.sgn-txt{font-size:.79rem;color:#475569;line-height:1.8;background:#f8fafc;border-radius:8px;padding:11px 13px;margin-bottom:13px;border:1px solid #f1f5f9}
+.sgn-cf{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;margin-bottom:13px;transition:all .18s}
+.sgn-cf.on{border-color:#0078d4;background:#eff6ff}
+.sgn-cf label{font-size:.83rem;font-weight:600;color:#1e293b;cursor:pointer}
+.sgn-cf input[type=checkbox]{accent-color:#0078d4;width:16px;height:16px;cursor:pointer;flex-shrink:0}
+.sgn-meta{display:flex;gap:7px;margin-bottom:13px}
+.sgn-mi{flex:1;background:#f8fafc;border-radius:7px;padding:8px 11px;border:1px solid #f1f5f9}
+.sgn-ml{font-size:.64rem;color:#94a3b8;font-weight:700;margin-bottom:1px;letter-spacing:.3px;text-transform:uppercase}
+.sgn-mv{font-size:.82rem;color:#1e293b;font-weight:600}
+</style>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<!-- Login -->
+<div id="login-screen">
+  <div class="login-card">
+    <div style="width:64px;height:64px;background:linear-gradient(135deg,#0078d4,#005a9e);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#fff;margin:0 auto 20px;letter-spacing:.5px">UAT</div>
+    <div class="login-title">STK UAT 검증 확인서</div>
+    <div class="login-co">스타트럭코리아 주식회사</div>
+    <button class="btn-login" id="btn-login" disabled>로딩 중...</button>
+    <div id="login-err"></div>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app">
+  <div class="topnav">
+    <div class="nav-brand">
+      
+      <div>
+        <div class="nav-title">STK UAT 검증 확인서</div>
+        <div id="pc-contact-email" style="font-size:.62rem;color:rgba(255,255,255,.55);margin-top:1px">문의: (로딩중...)</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-user">
+        <div class="nav-avatar" id="nav-avatar">?</div>
+        <span class="nav-name" id="nav-name"></span>
+      </div>
+      <button class="nav-admin-btn" id="nav-admin-btn" onclick="showAdmin()">관리자</button>
+      <button class="btn-out" onclick="signOut()">로그아웃</button>
+    </div>
+  </div>
+
+  <div class="page">
+    <!-- 이미 제출한 경우 -->
+    <div id="already-done">
+      <div class="done-icon">✅</div>
+      <div class="done-title">이미 UAT 확인서를 제출하셨습니다</div>
+      <div class="done-sub" id="already-date"></div>
+    </div>
+
+    <!-- 동의서 폼 -->
     <div id="form-body">
-      <!-- Header -->
-      <div class="hdr-card">
-        <div class="hdr-top">
-          <div class="hdr-title">STK Korea 시스템 UAT 검증 확인서</div>
-          <span class="hdr-badge">2026년도</span>
-        </div>
-        <div class="hdr-desc">
-          아래 각 시스템을 실제로 사용해보신 후, 정상적으로 작동함을 확인하셨으면 <b>확인</b>을 선택해 주세요.<br>
-          이슈가 있는 항목은 <b>이슈 있음</b>을 선택하고 비고란에 내용을 기재해 주세요.
-        </div>
-        <div class="progress-wrap">
-          <div class="prog-label"><span id="prog-text">0 / 9 시스템 완료</span><span id="prog-pct">0%</span></div>
+      <div class="uat-hdr">
+        <div class="uat-label">UAT VERIFICATION · 2026</div>
+        <div class="uat-title">STK Korea 시스템 UAT 검증 확인서</div>
+        <div class="uat-desc">각 시스템을 직접 사용해보신 후 검증 결과를 선택해 주세요.<br>이슈가 있는 항목은 이슈 있음을 선택하고 내용을 기재해 주세요.</div>
+        <div class="uat-pb">
+          <div class="uat-pr">
+            <span class="uat-pt" id="prog-text">0 / 9 시스템 완료</span>
+            <span class="uat-pp" id="prog-pct">0%</span>
+          </div>
           <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
         </div>
       </div>
 
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">GA</div>
-          <span class="sec-title">General Affairs</span>
-          <span class="sec-st todo" id="st_s1">미완료</span>
+      <div class="sc" id="card_s1">
+        <div class="sc-top">
+          <div class="sc-badge">GA</div>
+          <div class="sc-info">
+            <div class="sc-name">General Affairs</div>
+            <div class="sc-url"><a href="https://ga.startruckkorea.com" target="_blank">ga.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s1">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: General Affairs (GA)<br>
-            <b>기능 범위</b>: 총무 신청/결재 (STN · BC · IDC)<br>
-            <b>URL</b>: https://ga.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">STN(문구류) · BC(명함) · IDC(사원증) 신청 및 결재 · 관리자 Excel</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s1" onclick="sel('s1','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s1" onclick="sel('s1','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              General Affairs 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s1" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s1" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s1" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s1" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s1">
+            <textarea class="sc-ta" id="note_s1" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">MC</div>
-          <span class="sec-title">Mobility Car / RR</span>
-          <span class="sec-st todo" id="st_s2">미완료</span>
+      <div class="sc" id="card_s2">
+        <div class="sc-top">
+          <div class="sc-badge">MC</div>
+          <div class="sc-info">
+            <div class="sc-name">Mobility Car / RR</div>
+            <div class="sc-url"><a href="https://mc.startruckkorea.com" target="_blank">mc.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s2">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: Mobility Car / RR (MC)<br>
-            <b>기능 범위</b>: 모빌리티 카 · 수리 보고서<br>
-            <b>URL</b>: https://mc.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">Mobility Car 배차 신청 · 차량 수리 보고서 처리</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s2" onclick="sel('s2','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s2" onclick="sel('s2','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              Mobility Car / RR 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s2" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s2" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s2" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s2" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s2">
+            <textarea class="sc-ta" id="note_s2" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">SCC</div>
-          <span class="sec-title">Contract Checklist</span>
-          <span class="sec-st todo" id="st_s3">미완료</span>
+      <div class="sc" id="card_s3">
+        <div class="sc-top">
+          <div class="sc-badge">SCC</div>
+          <div class="sc-info">
+            <div class="sc-name">Contract Checklist</div>
+            <div class="sc-url"><a href="https://scc.startruckkorea.com" target="_blank">scc.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s3">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: Contract Checklist (SCC)<br>
-            <b>기능 범위</b>: 계약 체크리스트 (최대 8차 결재)<br>
-            <b>URL</b>: https://scc.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">Sales/Non-Sales 계약 체크리스트 · 최대 8차 결재</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s3" onclick="sel('s3','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s3" onclick="sel('s3','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              Contract Checklist 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s3" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s3" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s3" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s3" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s3">
+            <textarea class="sc-ta" id="note_s3" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">GW</div>
-          <span class="sec-title">Goodwill Approval</span>
-          <span class="sec-st todo" id="st_s4">미완료</span>
+      <div class="sc" id="card_s4">
+        <div class="sc-top">
+          <div class="sc-badge">GW</div>
+          <div class="sc-info">
+            <div class="sc-name">Goodwill Approval</div>
+            <div class="sc-url"><a href="https://gw.startruckkorea.com" target="_blank">gw.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s4">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: Goodwill Approval (GW)<br>
-            <b>기능 범위</b>: Goodwill · CCR · Tech-Care 승인<br>
-            <b>URL</b>: https://gw.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">Goodwill · CCR · Tech-Care · Service Voucher 승인</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s4" onclick="sel('s4','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s4" onclick="sel('s4','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              Goodwill Approval 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s4" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s4" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s4" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s4" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s4">
+            <textarea class="sc-ta" id="note_s4" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">BP</div>
-          <span class="sec-title">BP Master Data</span>
-          <span class="sec-st todo" id="st_s5">미완료</span>
+      <div class="sc" id="card_s5">
+        <div class="sc-top">
+          <div class="sc-badge">BP</div>
+          <div class="sc-info">
+            <div class="sc-name">BP Master Data</div>
+            <div class="sc-url"><a href="https://bp-master.startruckkorea.com" target="_blank">bp-master.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s5">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: BP Master Data (BP)<br>
-            <b>기능 범위</b>: Business Partner 마스터 데이터 관리<br>
-            <b>URL</b>: https://bp.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">BP 신규등록 · 정보변경 · 비활성화 · 활성화 · BP Code</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s5" onclick="sel('s5','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s5" onclick="sel('s5','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              BP Master Data 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s5" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s5" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s5" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s5" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s5">
+            <textarea class="sc-ta" id="note_s5" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">FA</div>
-          <span class="sec-title">FA Registration</span>
-          <span class="sec-st todo" id="st_s6">미완료</span>
+      <div class="sc" id="card_s6">
+        <div class="sc-top">
+          <div class="sc-badge">FA</div>
+          <div class="sc-info">
+            <div class="sc-name">FA Registration</div>
+            <div class="sc-url"><a href="https://fa.startruckkorea.com" target="_blank">fa.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s6">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: FA Registration (FA)<br>
-            <b>기능 범위</b>: 유형자산 등록 · 폐기 · 이관<br>
-            <b>URL</b>: https://fa.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">유형자산 등록(REG) · 폐기(DIS) · 이관(TFR)</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s6" onclick="sel('s6','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s6" onclick="sel('s6','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              FA Registration 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s6" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s6" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s6" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s6" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s6">
+            <textarea class="sc-ta" id="note_s6" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">WMC</div>
-          <span class="sec-title">Weekend Mobility Car</span>
-          <span class="sec-st todo" id="st_s7">미완료</span>
+      <div class="sc" id="card_s7">
+        <div class="sc-top">
+          <div class="sc-badge">WMC</div>
+          <div class="sc-info">
+            <div class="sc-name">Weekend Mobility Car</div>
+            <div class="sc-url"><a href="https://wmc.startruckkorea.com" target="_blank">wmc.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s7">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: Weekend Mobility Car (WMC)<br>
-            <b>기능 범위</b>: 주말 모빌리티 카 이벤트 · 추첨 · 쿠폰<br>
-            <b>URL</b>: https://wmc.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">주말 모빌리티 카 이벤트 · 신청 추첨 · 쿠폰 관리</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s7" onclick="sel('s7','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s7" onclick="sel('s7','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              Weekend Mobility Car 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s7" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s7" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s7" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s7" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s7">
+            <textarea class="sc-ta" id="note_s7" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">IT</div>
-          <span class="sec-title">IT Ticket System</span>
-          <span class="sec-st todo" id="st_s8">미완료</span>
+      <div class="sc" id="card_s8">
+        <div class="sc-top">
+          <div class="sc-badge">IT</div>
+          <div class="sc-info">
+            <div class="sc-name">IT Ticket System</div>
+            <div class="sc-url"><a href="https://it.startruckkorea.com" target="_blank">it.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s8">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: IT Ticket System (IT)<br>
-            <b>기능 범위</b>: IT 티켓 (INC · PRB · CHG · REQ)<br>
-            <b>URL</b>: https://it.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">INC · PRB · CHG · REQ 4가지 유형의 IT 티켓</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s8" onclick="sel('s8','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s8" onclick="sel('s8','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              IT Ticket System 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s8" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s8" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s8" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s8" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s8">
+            <textarea class="sc-ta" id="note_s8" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">APS</div>
-          <span class="sec-title">통합결재함</span>
-          <span class="sec-st todo" id="st_s9">미완료</span>
+      <div class="sc" id="card_s9">
+        <div class="sc-top">
+          <div class="sc-badge">APS</div>
+          <div class="sc-info">
+            <div class="sc-name">통합결재함</div>
+            <div class="sc-url"><a href="https://aps.startruckkorea.com" target="_blank">aps.startruckkorea.com</a></div>
+          </div>
+          <div class="sc-pill todo" id="pill_s9">미검증</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            <b>시스템명</b>: 통합결재함 (APS)<br>
-            <b>기능 범위</b>: 전체 시스템 결재 현황 통합 조회<br>
-            <b>URL</b>: https://aps.startruckkorea.com
+        <div class="sc-body">
+          <div class="sc-desc">전체 8개 시스템 결재 현황 통합 조회 · 직접 처리</div>
+          <div class="sc-btns">
+            <div class="sc-btn" id="btnp_s9" onclick="sel('s9','pass')"><span class="sc-mark">✓</span>검증 완료</div>
+            <div class="sc-btn vi" id="btni_s9" onclick="sel('s9','issue')"><span class="sc-mark">!</span>이슈 있음</div>
           </div>
-          <div class="c-row">
-            <div class="c-label">
-              통합결재함 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
-            </div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="s9" value="pass" onchange="upd()"> ✓ 확인</label>
-              <label><input type="radio" name="s9" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
-            </div>
-          </div>
-          <div id="issue_s9" style="display:none;padding:8px 16px 12px">
-            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
-              id="note_s9" oninput="upd()"
-              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          <div class="sc-iss" id="iss_s9">
+            <textarea class="sc-ta" id="note_s9" rows="2" placeholder="이슈 내용을 기재해 주세요..." oninput="upd()"></textarea>
           </div>
         </div>
       </div>
-
-      <!-- 서명 섹션 -->
-      <div class="section">
-        <div class="sec-hdr">
-          <div class="sec-num">✍</div>
-          <span class="sec-title">최종 확인 및 서명</span>
-          <span class="sec-st todo" id="st_sign">미완료</span>
+      <div class="sgn-card" id="sign-card" style="opacity:.45;pointer-events:none">
+        <div class="sgn-hdr">
+          <div class="sgn-title">최종 확인 및 서명</div>
+          <div class="sgn-pill todo" id="sgn-pill">미완료</div>
         </div>
-        <div class="sec-body">
-          <div class="info-box">
-            본인은 상기 STK Korea 시스템들을 직접 사용하여 검증하였으며, 위에 기재한 내용이 사실임을 확인합니다.<br>
-            본 확인서는 UAT(사용자 인수 테스트) 목적으로 제출되며, 전자 서명으로 갈음합니다.
+        <div class="sgn-body">
+          <div class="sgn-txt">본인은 상기 STK Korea 시스템들을 직접 사용하여 UAT 검증을 수행하였으며,<br>위에 기재한 내용이 사실임을 확인하고 전자 서명으로 제출합니다.</div>
+          <div class="sgn-cf" id="sgn-cf" onclick="toggleCf()">
+            <label for="r_final" style="cursor:pointer">상기 내용을 확인하고 서명합니다.</label>
+            <input type="checkbox" id="r_final" name="r_final" onchange="upd()" onclick="event.stopPropagation()">
           </div>
-          <div class="c-row" style="border-bottom:none">
-            <div class="c-label"><b>본인은 상기 내용을 충분히 확인하였으며, 이에 서명합니다.</b></div>
-            <div class="radio-wrap">
-              <label><input type="radio" name="r_final" value="agree" onchange="upd()"> 확인</label>
-            </div>
+          <div class="sgn-meta">
+            <div class="sgn-mi"><div class="sgn-ml">성명</div><div class="sgn-mv" id="sign-user-name">—</div></div>
+            <div class="sgn-mi"><div class="sgn-ml">서명일</div><div class="sgn-mv" id="sign-date">—</div></div>
           </div>
           <!-- 서명 패드 -->
           <div class="sign-wrap" id="sign-section" style="opacity:.4;pointer-events:none">
@@ -312,11 +471,11 @@
       <div class="submit-area">
         <div class="submit-notice">
           <b>제출 전 확인하세요.</b><br>
-          · 필수 항목(1, 2, 3항)에 미동의 시 근로계약 체결·유지가 불가능할 수 있습니다.<br>
-          · 서명 후 제출하시면 동의 결과 및 서명 이미지가 사내 시스템에 기록됩니다.<br>
-          · 동의서 제출 이후에도 개인정보보호법에 따라 동의를 철회하실 수 있습니다.
+          
+          · 서명 후 제출하시면 검증 결과 및 서명 이미지가 사내 시스템에 기록됩니다.<br>
+          · 제출된 UAT 확인서는 QA 검증 완료의 공식 기록으로 활용됩니다.
         </div>
-        <button class="btn-submit" id="btn-submit" disabled onclick="submitForm()">모든 항목을 완료하고 서명해 주세요</button>
+        <button class="btn-submit" id="btn-submit" disabled onclick="submitForm()">모든 시스템을 검증하고 서명해 주세요</button>
       </div>
     </div>
 
@@ -347,10 +506,11 @@
     </div>
 
     <!-- 완료 화면 -->
+
     <div id="complete-screen">
       <div class="comp-icon">✅</div>
-      <div class="comp-title">동의서가 성공적으로 제출되었습니다</div>
-      <div class="comp-sub">제출해 주셔서 감사합니다. 동의 내역이 사내 시스템에 안전하게 기록되었습니다.</div>
+      <div class="comp-title">UAT 검증 확인서가 제출되었습니다</div>
+      <div class="comp-sub">검증 결과가 사내 시스템에 안전하게 기록되었습니다.</div>
       <div class="comp-detail" id="comp-detail"></div>
     </div>
   </div>
@@ -576,57 +736,61 @@ async function checkAlreadySubmitted() {
 }
 
 // ── 진행률 ──
-function getVal(name) { const el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : null; }
-function upd() {
-  const sysNames = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
-  let done = sysNames.filter(n => getVal(n)).length;
-  const total = sysNames.length;
-  const pct = Math.round(done / (total+1) * 100);
-  document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('prog-text').textContent = done + ' / ' + total + ' 시스템 완료';
-  document.getElementById('prog-pct').textContent = pct + '%';
 
-  // 각 시스템 상태 + 이슈 textarea 표시
-  sysNames.forEach(n => {
-    const v = getVal(n);
-    const st = document.getElementById('st_' + n);
-    const issueBox = document.getElementById('issue_' + n);
-    if (st) { st.className = 'sec-st ' + (v ? 'done' : 'todo'); st.textContent = v ? (v==='pass'?'확인':'⚠ 이슈') : '미완료'; }
-    if (issueBox) issueBox.style.display = v==='issue' ? 'block' : 'none';
+const SYS_NAMES=['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+const SYS_LABELS={s1:'GA (General Affairs)',s2:'MC (Mobility Car / RR)',s3:'SCC (Contract Checklist)',s4:'GW (Goodwill Approval)',s5:'BP (BP Master Data)',s6:'FA (FA Registration)',s7:'WMC (Weekend Mobility Car)',s8:'IT (IT Ticket)',s9:'APS (통합결재함)',r_final:'최종 확인'};
+
+function getVal(n){
+  if(n==='r_final'){const e=document.getElementById('r_final');return e&&e.checked?'agree':null;}
+  const h=document.getElementById('hv_'+n);return h?h.value:null;
+}
+function sel(rn,val){
+  let h=document.getElementById('hv_'+rn);
+  if(!h){h=document.createElement('input');h.type='hidden';h.id='hv_'+rn;document.body.appendChild(h);}
+  h.value=val; upd();
+}
+function toggleCf(){const e=document.getElementById('r_final');if(e){e.checked=!e.checked;upd();}}
+function upd(){
+  let done=SYS_NAMES.filter(n=>getVal(n)).length;
+  const total=SYS_NAMES.length;
+  const pct=Math.round(done/(total+1)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-text').textContent=done+' / '+total+' 시스템 완료';
+  document.getElementById('prog-pct').textContent=pct+'%';
+  SYS_NAMES.forEach(n=>{
+    const v=getVal(n);
+    const pill=document.getElementById('pill_'+n);
+    const card=document.getElementById('card_'+n);
+    const iss=document.getElementById('iss_'+n);
+    const bp=document.getElementById('btnp_'+n);
+    const bi=document.getElementById('btni_'+n);
+    if(pill){pill.className='sc-pill '+(v?(v==='pass'?'pass':'issue'):'todo');pill.textContent=v?(v==='pass'?'검증 완료':'이슈 있음'):'미검증';}
+    if(card)card.className='sc'+(v?(v==='pass'?' sp':' si'):'');
+    if(bp)bp.className='sc-btn'+(v==='pass'?' vp':'');
+    if(bi)bi.className='sc-btn vi'+(v==='issue'?' sel':'');
+    if(iss)iss.style.display=v==='issue'?'block':'none';
   });
-
-  const signSt = document.getElementById('st_sign');
-  if (signSt) { signSt.className = 'sec-st ' + (getVal('r_final')?'done':'todo'); signSt.textContent = getVal('r_final')?'완료':'미완료'; }
-
-  // 모든 시스템 확인 후 서명 패드 활성화
-  const allSysDone = sysNames.every(n => getVal(n)) && getVal('r_final');
-  const ss = document.getElementById('sign-section');
-  if (allSysDone) { ss.style.opacity = '1'; ss.style.pointerEvents = ''; }
-  else { ss.style.opacity = '.4'; ss.style.pointerEvents = 'none'; }
-
+  const allSys=SYS_NAMES.every(n=>getVal(n));
+  const sc=document.getElementById('sign-card');
+  if(sc){sc.style.opacity=allSys?'1':'.45';sc.style.pointerEvents=allSys?'':'none';}
+  const finalOk=!!getVal('r_final');
+  const cf=document.getElementById('sgn-cf');if(cf)cf.className='sgn-cf'+(finalOk?' on':'');
+  const sp=document.getElementById('sgn-pill');if(sp){sp.className='sgn-pill '+(finalOk?'done':'todo');sp.textContent=finalOk?'완료':'미완료';}
+  const spad=document.getElementById('sign-section');if(spad){spad.style.opacity=finalOk?'1':'.4';spad.style.pointerEvents=finalOk?'':'none';}
   checkSubmitReady();
 }
-function checkSubmitReady() {
-  const allDone = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'].every(n => getVal(n)) && getVal('r_final');
-  const ready = allDone && isSigned;
-  const btn = document.getElementById('btn-submit');
-  btn.disabled = !ready;
-  if (!allDone) btn.textContent = '모든 항목을 완료하고 서명해 주세요';
-  else if (!isSigned) btn.textContent = '서명을 완료해 주세요';
-  else btn.textContent = 'UAT 확인서 제출하기';
+function checkSubmitReady(){
+  const allDone=SYS_NAMES.every(n=>getVal(n))&&getVal('r_final');
+  const ready=allDone&&isSigned;
+  const btn=document.getElementById('btn-submit');
+  btn.disabled=!ready;
+  if(!allDone)btn.textContent='모든 시스템을 검증하고 서명해 주세요';
+  else if(!isSigned)btn.textContent='서명을 완료해 주세요';
+  else btn.textContent='UAT 검증 확인서 제출';
 }
-function allAgree(n1, n2, checkId) { /* UAT 미사용 */ }
-function allAgree_orig(n1, n2, checkId) {
-  const chk = document.getElementById(checkId).checked;
-  [n1, n2].forEach(n => { const r = document.querySelector('input[name="'+n+'"][value="agree"]'); if(r) r.checked = chk; });
-  upd();
-}
-function allAgree3() { /* UAT 미사용 */ }
-function allAgree3_orig() {
-  const chk = document.getElementById('all3').checked;
-  ['r8','r9'].forEach(n => { const r = document.querySelector('input[name="'+n+'"][value="agree"]'); if(r) r.checked = chk; });
-  upd();
-}
+function allAgree(){}
+function allAgree3(){}
+
 
 // ── 관리자 ──
 const ADMIN_EMAILS = [];
@@ -757,7 +921,7 @@ function renderAdminTable() {
       if (!pdfUrl && email) {
         const safeName = email.replace(/[^a-z0-9]/gi, '_');
         const dateStr = dateFromTitle || new Date().toISOString().substring(0,10);
-        pdfUrl = 'https://startruckkorea.sharepoint.com/sites/STK-DB/AttachedFiles/UATConsents_AttachedFiles/Signatures/UAT_' + safeName + '_' + dateStr + '.pdf';
+        pdfUrl = 'https://startruckkorea.sharepoint.com/sites/STK-DB/AttachedFiles/UATConsents_AttachedFiles/Signatures/Consent_' + safeName + '_' + dateStr + '.pdf';
       }
 
       const dtShort = dt !== '-' ? dt.replace(/^\d{4}\. /,'').replace(/\. /,'/').replace(/\.$/,'') : '-';
@@ -850,7 +1014,7 @@ async function submitForm() {
     const _dt = new Date(now);
     const _pad = n => String(n).padStart(2,'0');
     const _dateStr = now.substring(0,10) + '-' + _pad(_dt.getHours()) + _pad(_dt.getMinutes());
-    const fileName = 'UAT_' + user.email.replace(/[^a-z0-9]/gi,'_') + '_' + _dateStr + '.pdf';
+    const fileName = 'Consent_' + user.email.replace(/[^a-z0-9]/gi,'_') + '_' + _dateStr + '.pdf';
     try {
       const formEl = document.getElementById('form-body');
       const submitArea = formEl.querySelector('.submit-area');
@@ -951,13 +1115,7 @@ async function submitForm() {
       r7:'C7_고유식별제3자제공', r8:'C8_일반국외제공',
       r9:'C9_고유식별국외제공', r10:'C10_최종확인'
     };
-    const sysMap = {
-      s1:'GA (General Affairs)', s2:'MC (Mobility Car / RR)', s3:'SCC (Contract Checklist)',
-      s4:'GW (Goodwill Approval)', s5:'BP (BP Master Data)', s6:'FA (FA Registration)',
-      s7:'WMC (Weekend Mobility Car)', s8:'IT (IT Ticket)', s9:'APS (통합결재함)',
-      r_final:'최종 확인'
-    };
-    const labelDisplay = sysMap;
+    const labelDisplay = SYS_LABELS;
     // 모든 데이터를 Title(제목) 하나에 저장 - 컬럼 추가 불필요
     // Title: 255자 이내 (SharePoint 제한)
     const titleStr = ('[' + _dateStr + '] ' + user.email).substring(0, 255);
@@ -969,10 +1127,9 @@ async function submitForm() {
       '',
       ...Object.keys(labelDisplay).map(k => {
         const v = getVal(k);
-        const prefix = v==='pass'?'[확인] ' : v==='issue'?'[이슈] ' : v==='agree'?'[확인] ' : '[미완료] ';
-        const noteEl = document.getElementById('note_' + k);
-        const note = noteEl && noteEl.value.trim() ? ' → ' + noteEl.value.trim() : '';
-        return prefix + labelDisplay[k] + note;
+        const noteEl2=document.getElementById('note_'+k);const noteStr=noteEl2&&noteEl2.value.trim()?' — '+noteEl2.value.trim():'';
+        const prefix = v==='pass'?'[검증완료] ':v==='issue'?'[이슈] ':v==='agree'?'[확인] ':'[미완료] ';
+        return prefix + labelDisplay[k]+noteStr;
       }),
       '',
       signFileUrl ? '서명파일: ' + signFileUrl : '서명파일: 없음'
@@ -1007,8 +1164,8 @@ async function submitForm() {
     document.getElementById('form-body').style.display = 'none';
     const cs = document.getElementById('complete-screen');
     cs.style.display = 'block';
-    const valLabel = v => v==='pass'?'확인' : v==='issue'?'이슈 있음' : v==='agree'?'확인' : '미완료';
-    const valIcon  = v => v==='pass'?'✓ ' : v==='issue'?'⚠ ' : v==='agree'?'✓ ' : '✗ ';
+    const valLabel = v => v==='pass'?'검증완료':v==='issue'?'이슈있음':v==='agree'?'확인':'미완료';
+    const valIcon  = v => v==='pass'?'✓ ':v==='issue'?'! ':v==='agree'?'✓ ':'✗ ';
     const lines = Object.keys(labelDisplay).map(k => valIcon(getVal(k)) + labelDisplay[k] + ': ' + valLabel(getVal(k)));
     document.getElementById('comp-detail').innerHTML =
       '<b>제출자:</b> ' + user.displayName + ' (' + user.email + ')<br>' +
@@ -1024,5 +1181,5 @@ async function submitForm() {
 }
 
 </script>
-</body>
+
 </html>
