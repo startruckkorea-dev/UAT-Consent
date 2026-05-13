@@ -1,0 +1,1028 @@
+    <div id="form-body">
+      <!-- Header -->
+      <div class="hdr-card">
+        <div class="hdr-top">
+          <div class="hdr-title">STK Korea 시스템 UAT 검증 확인서</div>
+          <span class="hdr-badge">2026년도</span>
+        </div>
+        <div class="hdr-desc">
+          아래 각 시스템을 실제로 사용해보신 후, 정상적으로 작동함을 확인하셨으면 <b>확인</b>을 선택해 주세요.<br>
+          이슈가 있는 항목은 <b>이슈 있음</b>을 선택하고 비고란에 내용을 기재해 주세요.
+        </div>
+        <div class="progress-wrap">
+          <div class="prog-label"><span id="prog-text">0 / 9 시스템 완료</span><span id="prog-pct">0%</span></div>
+          <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">GA</div>
+          <span class="sec-title">General Affairs</span>
+          <span class="sec-st todo" id="st_s1">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: General Affairs (GA)<br>
+            <b>기능 범위</b>: 총무 신청/결재 (STN · BC · IDC)<br>
+            <b>URL</b>: https://ga.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              General Affairs 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s1" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s1" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s1" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s1" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">MC</div>
+          <span class="sec-title">Mobility Car / RR</span>
+          <span class="sec-st todo" id="st_s2">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: Mobility Car / RR (MC)<br>
+            <b>기능 범위</b>: 모빌리티 카 · 수리 보고서<br>
+            <b>URL</b>: https://mc.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              Mobility Car / RR 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s2" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s2" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s2" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s2" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">SCC</div>
+          <span class="sec-title">Contract Checklist</span>
+          <span class="sec-st todo" id="st_s3">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: Contract Checklist (SCC)<br>
+            <b>기능 범위</b>: 계약 체크리스트 (최대 8차 결재)<br>
+            <b>URL</b>: https://scc.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              Contract Checklist 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s3" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s3" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s3" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s3" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">GW</div>
+          <span class="sec-title">Goodwill Approval</span>
+          <span class="sec-st todo" id="st_s4">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: Goodwill Approval (GW)<br>
+            <b>기능 범위</b>: Goodwill · CCR · Tech-Care 승인<br>
+            <b>URL</b>: https://gw.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              Goodwill Approval 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s4" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s4" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s4" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s4" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">BP</div>
+          <span class="sec-title">BP Master Data</span>
+          <span class="sec-st todo" id="st_s5">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: BP Master Data (BP)<br>
+            <b>기능 범위</b>: Business Partner 마스터 데이터 관리<br>
+            <b>URL</b>: https://bp.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              BP Master Data 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s5" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s5" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s5" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s5" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">FA</div>
+          <span class="sec-title">FA Registration</span>
+          <span class="sec-st todo" id="st_s6">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: FA Registration (FA)<br>
+            <b>기능 범위</b>: 유형자산 등록 · 폐기 · 이관<br>
+            <b>URL</b>: https://fa.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              FA Registration 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s6" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s6" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s6" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s6" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">WMC</div>
+          <span class="sec-title">Weekend Mobility Car</span>
+          <span class="sec-st todo" id="st_s7">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: Weekend Mobility Car (WMC)<br>
+            <b>기능 범위</b>: 주말 모빌리티 카 이벤트 · 추첨 · 쿠폰<br>
+            <b>URL</b>: https://wmc.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              Weekend Mobility Car 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s7" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s7" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s7" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s7" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">IT</div>
+          <span class="sec-title">IT Ticket System</span>
+          <span class="sec-st todo" id="st_s8">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: IT Ticket System (IT)<br>
+            <b>기능 범위</b>: IT 티켓 (INC · PRB · CHG · REQ)<br>
+            <b>URL</b>: https://it.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              IT Ticket System 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s8" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s8" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s8" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s8" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">APS</div>
+          <span class="sec-title">통합결재함</span>
+          <span class="sec-st todo" id="st_s9">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            <b>시스템명</b>: 통합결재함 (APS)<br>
+            <b>기능 범위</b>: 전체 시스템 결재 현황 통합 조회<br>
+            <b>URL</b>: https://aps.startruckkorea.com
+          </div>
+          <div class="c-row">
+            <div class="c-label">
+              통합결재함 시스템이 정상적으로 작동함을 확인하였습니다.<span class="badge-req">필수</span>
+            </div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="s9" value="pass" onchange="upd()"> ✓ 확인</label>
+              <label><input type="radio" name="s9" value="issue" onchange="upd()"> ⚠ 이슈 있음</label>
+            </div>
+          </div>
+          <div id="issue_s9" style="display:none;padding:8px 16px 12px">
+            <textarea placeholder="이슈 내용을 간략히 기재해 주세요..." rows="2"
+              id="note_s9" oninput="upd()"
+              style="width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;font-size:.82rem;font-family:inherit;resize:vertical"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 서명 섹션 -->
+      <div class="section">
+        <div class="sec-hdr">
+          <div class="sec-num">✍</div>
+          <span class="sec-title">최종 확인 및 서명</span>
+          <span class="sec-st todo" id="st_sign">미완료</span>
+        </div>
+        <div class="sec-body">
+          <div class="info-box">
+            본인은 상기 STK Korea 시스템들을 직접 사용하여 검증하였으며, 위에 기재한 내용이 사실임을 확인합니다.<br>
+            본 확인서는 UAT(사용자 인수 테스트) 목적으로 제출되며, 전자 서명으로 갈음합니다.
+          </div>
+          <div class="c-row" style="border-bottom:none">
+            <div class="c-label"><b>본인은 상기 내용을 충분히 확인하였으며, 이에 서명합니다.</b></div>
+            <div class="radio-wrap">
+              <label><input type="radio" name="r_final" value="agree" onchange="upd()"> 확인</label>
+            </div>
+          </div>
+          <!-- 서명 패드 -->
+          <div class="sign-wrap" id="sign-section" style="opacity:.4;pointer-events:none">
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0 8px;border-bottom:1px solid #f1f5f9;margin-bottom:12px">
+              <span style="font-size:.82rem;color:#64748b;font-weight:500;width:48px;flex-shrink:0">성명</span>
+              <span id="sign-user-name" style="font-size:.95rem;font-weight:700;color:#1e293b;letter-spacing:.3px"></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:0 0 12px">
+              <span style="font-size:.82rem;color:#64748b;font-weight:500;width:48px;flex-shrink:0">일자</span>
+              <span id="sign-date" style="font-size:.88rem;color:#475569"></span>
+            </div>
+            <div class="sign-label">서명 (마우스 또는 터치로 서명해 주세요)</div>
+            <div class="sign-canvas-wrap">
+              <canvas id="sig-canvas" width="720" height="160"></canvas>
+              <div class="sign-hint" id="sign-hint">이곳에 서명해 주세요</div>
+            </div>
+            <div class="sign-actions">
+              <button class="btn-clear" onclick="clearSign()">서명 지우기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-area">
+        <div class="submit-notice">
+          <b>제출 전 확인하세요.</b><br>
+          · 필수 항목(1, 2, 3항)에 미동의 시 근로계약 체결·유지가 불가능할 수 있습니다.<br>
+          · 서명 후 제출하시면 동의 결과 및 서명 이미지가 사내 시스템에 기록됩니다.<br>
+          · 동의서 제출 이후에도 개인정보보호법에 따라 동의를 철회하실 수 있습니다.
+        </div>
+        <button class="btn-submit" id="btn-submit" disabled onclick="submitForm()">모든 항목을 완료하고 서명해 주세요</button>
+      </div>
+    </div>
+
+    <!-- 관리자 화면 -->
+    <div id="admin-screen">
+      <div class="admin-hdr">
+        <span class="admin-title">동의서 제출 현황</span>
+        <span class="admin-badge" id="admin-badge">관리자 전용</span>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+        <input id="admin-search" placeholder="제출자 이름 또는 이메일 검색..." oninput="renderAdminTable()"
+          style="flex:1;padding:7px 12px;border:1px solid #e2e8f0;border-radius:20px;font-size:.78rem;font-family:inherit;outline:none">
+        <button onclick="loadAdminData()" style="background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:7px 16px;font-size:.78rem;color:#64748b;cursor:pointer;font-family:inherit;white-space:nowrap">새로고침</button>
+        <button onclick="hideAdmin()" style="background:#0078d4;color:#fff;border:none;border-radius:20px;padding:7px 16px;font-size:.78rem;cursor:pointer;font-family:inherit;white-space:nowrap">닫기</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr>
+            <th>제출자</th>
+            <th>이메일</th>
+            <th>제출일</th>
+            <th style="text-align:center">동의서 PDF</th>
+          </tr></thead>
+          <tbody id="admin-tbody"><tr><td colspan="4" class="admin-empty">데이터 불러오는 중...</td></tr></tbody>
+        </table>
+      </div>
+      <div id="admin-pagination" style="display:flex;justify-content:center;gap:6px;margin-top:12px;flex-wrap:wrap"></div>
+    </div>
+
+    <!-- 완료 화면 -->
+    <div id="complete-screen">
+      <div class="comp-icon">✅</div>
+      <div class="comp-title">동의서가 성공적으로 제출되었습니다</div>
+      <div class="comp-sub">제출해 주셔서 감사합니다. 동의 내역이 사내 시스템에 안전하게 기록되었습니다.</div>
+      <div class="comp-detail" id="comp-detail"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading -->
+<div id="loading">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <span class="loading-txt" id="loading-txt">처리 중...</span>
+  </div>
+</div>
+
+<script>
+const CLIENT_ID = '432976c2-b43a-492e-8213-ece505fa1f51';
+const TENANT_ID = '19cab1f5-21f4-44df-8ac6-96d6ca595203';
+const SITE_PATH = 'startruckkorea.sharepoint.com:/sites/STK-DB:';
+const GRAPH     = 'https://graph.microsoft.com/v1.0';
+const SCOPES    = ['User.Read','Sites.ReadWrite.All','Files.ReadWrite.All'];
+const LIST_NAME = 'UATConsents'; // SharePoint 리스트명
+
+let msalApp = null, user = null, siteId = null, driveId = null;
+let isSigned = false;
+
+// ── MSAL 초기화 ──
+window.addEventListener('load', async () => {
+  const btn = document.getElementById('btn-login');
+  // 5초 안에 초기화 안 되면 강제로 버튼 활성화
+  const fallback = setTimeout(() => {
+    if (btn.disabled) {
+      btn.disabled = false;
+      btn.textContent = 'Microsoft 계정으로 로그인';
+    }
+  }, 5000);
+
+  try {
+    msalApp = new msal.PublicClientApplication({
+      auth: {
+        clientId: CLIENT_ID,
+        authority: 'https://login.microsoftonline.com/' + TENANT_ID,
+        redirectUri: window.location.origin + window.location.pathname
+      },
+      cache: { cacheLocation: 'localStorage', storeAuthStateInCookie: false }
+    });
+    await msalApp.initialize();
+    clearTimeout(fallback);
+
+    const resp = await msalApp.handleRedirectPromise();
+    if (resp) { msalApp.setActiveAccount(resp.account); await boot(resp.account); return; }
+    const accounts = msalApp.getAllAccounts();
+    if (accounts.length) { msalApp.setActiveAccount(accounts[0]); await boot(accounts[0]); return; }
+    btn.disabled = false;
+    btn.textContent = 'Microsoft 계정으로 로그인';
+  } catch(e) {
+    clearTimeout(fallback);
+    btn.disabled = false;
+    btn.textContent = 'Microsoft 계정으로 로그인';
+    console.warn('MSAL 초기화 오류:', e.message);
+  }
+});
+document.getElementById('btn-login').onclick = async () => {
+  try {
+    const r = await msalApp.loginPopup({ scopes: SCOPES });
+    msalApp.setActiveAccount(r.account); await boot(r.account);
+  } catch(e) { showErr(e.message); }
+};
+function signOut() { msalApp.logoutRedirect(); }
+function showErr(msg) { const e = document.getElementById('login-err'); e.textContent = msg; e.style.display = 'block'; }
+
+async function getToken() {
+  try { return (await msalApp.acquireTokenSilent({ scopes: SCOPES, account: msalApp.getActiveAccount() })).accessToken; }
+  catch(e) {
+    if (e.name === 'InteractionRequiredAuthError' || (e.errorCode && e.errorCode.includes('interaction_required'))) {
+      const r = await msalApp.acquireTokenPopup({ scopes: SCOPES });
+      msalApp.setActiveAccount(r.account); return r.accessToken;
+    } throw e;
+  }
+}
+async function api(path, method = 'GET', body = null) {
+  const t = await getToken();
+  const opts = { method, headers: { Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' } };
+  if (body) opts.body = JSON.stringify(body);
+  const res = await fetch(GRAPH + path, opts);
+  if (!res.ok) throw new Error((await res.json())?.error?.message || res.status);
+  return res.status === 204 ? null : res.json();
+}
+async function apiRaw(path, method, body, contentType) {
+  const t = await getToken();
+  const url = path.startsWith('http') ? path : GRAPH + path;
+  const res = await fetch(url, { method, headers: { Authorization: 'Bearer ' + t, 'Content-Type': contentType }, body });
+  if (!res.ok) throw new Error((await res.json())?.error?.message || res.status);
+  return res.json();
+}
+function loading(on, txt = '처리 중...') {
+  document.getElementById('loading').className = on ? 'show' : '';
+  document.getElementById('loading-txt').textContent = txt;
+}
+
+// ── 부팅 ──
+// ── System Config ──
+let _sysConfig = null;
+async function loadSystemConfig() {
+  if (_sysConfig) return _sysConfig;
+  try {
+    const t = await getToken();
+    const drivesRes = await api('/sites/' + siteId + '/drives');
+    let docDrive = (drivesRes.value||[]).find(d=>['Documents','문서','Shared Documents'].includes(d.name));
+    if (!docDrive && drivesRes.value) docDrive = drivesRes.value[0];
+    const res = await fetch('https://graph.microsoft.com/v1.0/drives/'+docDrive.id+'/root:/system_config_final.xlsx:/content',
+      {headers:{Authorization:'Bearer '+t}});
+    if (!res.ok) throw new Error('system_config_final.xlsx 없음 ('+res.status+')');
+    const buf = await res.arrayBuffer();
+    const wb = XLSX.read(buf,{type:'array'});
+    const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1});
+    const cfg = {};
+    rows.forEach(row=>{
+      const key=(row[0]||'').toString().trim();
+      if(!key||key.startsWith('[')||key==='설정 키 (KEY)'||key.startsWith('이 파일')||key.startsWith('STK Korea')) return;
+      cfg[key]={name:(row[1]||'').toString().trim(),email:(row[2]||'').toString().trim()};
+    });
+    _sysConfig=cfg;
+    return cfg;
+  } catch(e) {
+    console.warn('[Config] 로드 실패:',e.message);
+    return null;
+  }
+}
+function cfgVal(cfg,key,defaultObj) {
+  if(!cfg||!cfg[key]) return defaultObj;
+  const v=cfg[key];
+  return {...defaultObj, name:v.name||defaultObj.name, email:v.email||defaultObj.email};
+}
+function cfgEmails(cfg,keys) {
+  const expanded=[];
+  keys.forEach(k=>{
+    const m=k.match(/^(.+_ADMIN_)[0-9]+$/);
+    if(m){const p=m[1];let n=1;while(cfg&&cfg[p+n]){expanded.push(p+n);n++;}}
+    else expanded.push(k);
+  });
+  return [...new Set(expanded)].map(k=>(cfg&&cfg[k]?cfg[k].email:'')).filter(Boolean);
+}
+
+async function boot(account) {
+  user = account;
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  try {
+    const me = await api('/me?$select=mail,userPrincipalName,displayName');
+    user.email = (me.mail || me.userPrincipalName || account.username || '').toLowerCase();
+    user.displayName = me.displayName || account.name || '';
+  } catch(e) {
+    user.email = (account.username || '').toLowerCase();
+    user.displayName = account.name || '';
+  }
+  // account 정보도 user에 복사 (isAdmin에서 참조)
+  user.username = (account.username || '').toLowerCase();
+  user.idTokenClaims = account.idTokenClaims || {};
+  const initials = (user.displayName || '?').split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
+  document.getElementById('nav-avatar').textContent = initials;
+  document.getElementById('nav-name').textContent = user.displayName;
+  // 서명 섹션 성명/일자 업데이트
+  const snEl = document.getElementById('sign-user-name');
+  if (snEl) snEl.textContent = user.displayName || user.email;
+  const sdEl = document.getElementById('sign-date');
+  if (sdEl) sdEl.textContent = new Date().toLocaleDateString('ko-KR', {year:'numeric',month:'long',day:'numeric'});
+
+  loading(true, '데이터 확인 중...');
+  try {
+    const site = await api('/sites/' + SITE_PATH);
+    siteId = site.id;
+    // 문서 라이브러리 driveId 확보
+    try {
+      const drives = await api('/sites/' + siteId + '/drives');
+      const docDrive = (drives.value || []).find(d => d.name === 'AttachedFiles') || (drives.value || []).find(d => ['Documents','문서','Shared Documents'].includes(d.name)) || drives.value?.[0];
+      if (docDrive) driveId = docDrive.id;
+      // Signatures 폴더 ID 확보 (경로 파싱 문제 우회)
+      if (driveId) {
+        try {
+          const folderRes = await fetch('https://graph.microsoft.com/v1.0/drives/' + driveId + '/root:/UATConsents_AttachedFiles/Signatures',
+            { headers: { Authorization: 'Bearer ' + (await getToken()) } });
+          if (folderRes.ok) {
+            const folderData = await folderRes.json();
+            window._signaturesFolderId = folderData.id;
+          }
+        } catch(e3) { console.warn('Signatures 폴더 ID 조회 실패:', e3.message); }
+      }
+    } catch(e2) { console.warn('driveId 조회 실패:', e2.message); }
+    await checkAlreadySubmitted();
+  } catch(e) { console.error(e); }
+  loading(false);
+
+  // system_config_final.xlsx 로드 (try 블록 밖에서 독립 실행)
+  try {
+    const _cfg = await loadSystemConfig();
+    if (_cfg) {
+      // 문의 이메일 업데이트
+      const _contact = cfgVal(_cfg,'PC_CONTACT',cfgVal(_cfg,'CONTACT_EMAIL',{email:''}));
+      const _pcEl = document.getElementById('pc-contact-email');
+      if(_pcEl && _contact.email) _pcEl.textContent='문의: '+_contact.email;
+      // 관리자 계정 업데이트
+      const _adminList = cfgEmails(_cfg,['PC_ADMIN_1','ADMIN_SP']);
+      if(_adminList.length) ADMIN_EMAILS.splice(0,ADMIN_EMAILS.length,..._adminList);
+    }
+  } catch(e) { console.warn('[Config] 로드 실패:', e.message); }
+
+  // 관리자 버튼 표시 (config 로드 후, 대소문자 무시)
+  // email, UPN, username 중 하나라도 일치하면 관리자
+  const _adminCandidates = [
+    user.email,
+    user.username,
+    user.idTokenClaims?.preferred_username,
+    user.idTokenClaims?.upn,
+  ].map(v=>(v||'').toLowerCase()).filter(Boolean);
+  if (ADMIN_EMAILS.some(e => _adminCandidates.includes(e.toLowerCase()))) {
+    document.getElementById('nav-admin-btn').style.display = 'block';
+  }
+  initCanvas();
+}
+
+// ── 중복 제출 확인 ──
+async function checkAlreadySubmitted() {
+  // 중복 제출 제한 없음 — 항상 신규 제출 가능
+}
+
+// ── 진행률 ──
+function getVal(name) { const el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : null; }
+function upd() {
+  const sysNames = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+  let done = sysNames.filter(n => getVal(n)).length;
+  const total = sysNames.length;
+  const pct = Math.round(done / (total+1) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = done + ' / ' + total + ' 시스템 완료';
+  document.getElementById('prog-pct').textContent = pct + '%';
+
+  // 각 시스템 상태 + 이슈 textarea 표시
+  sysNames.forEach(n => {
+    const v = getVal(n);
+    const st = document.getElementById('st_' + n);
+    const issueBox = document.getElementById('issue_' + n);
+    if (st) { st.className = 'sec-st ' + (v ? 'done' : 'todo'); st.textContent = v ? (v==='pass'?'확인':'⚠ 이슈') : '미완료'; }
+    if (issueBox) issueBox.style.display = v==='issue' ? 'block' : 'none';
+  });
+
+  const signSt = document.getElementById('st_sign');
+  if (signSt) { signSt.className = 'sec-st ' + (getVal('r_final')?'done':'todo'); signSt.textContent = getVal('r_final')?'완료':'미완료'; }
+
+  // 모든 시스템 확인 후 서명 패드 활성화
+  const allSysDone = sysNames.every(n => getVal(n)) && getVal('r_final');
+  const ss = document.getElementById('sign-section');
+  if (allSysDone) { ss.style.opacity = '1'; ss.style.pointerEvents = ''; }
+  else { ss.style.opacity = '.4'; ss.style.pointerEvents = 'none'; }
+
+  checkSubmitReady();
+}
+function checkSubmitReady() {
+  const allDone = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'].every(n => getVal(n)) && getVal('r_final');
+  const ready = allDone && isSigned;
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = !ready;
+  if (!allDone) btn.textContent = '모든 항목을 완료하고 서명해 주세요';
+  else if (!isSigned) btn.textContent = '서명을 완료해 주세요';
+  else btn.textContent = 'UAT 확인서 제출하기';
+}
+function allAgree(n1, n2, checkId) { /* UAT 미사용 */ }
+function allAgree_orig(n1, n2, checkId) {
+  const chk = document.getElementById(checkId).checked;
+  [n1, n2].forEach(n => { const r = document.querySelector('input[name="'+n+'"][value="agree"]'); if(r) r.checked = chk; });
+  upd();
+}
+function allAgree3() { /* UAT 미사용 */ }
+function allAgree3_orig() {
+  const chk = document.getElementById('all3').checked;
+  ['r8','r9'].forEach(n => { const r = document.querySelector('input[name="'+n+'"][value="agree"]'); if(r) r.checked = chk; });
+  upd();
+}
+
+// ── 관리자 ──
+const ADMIN_EMAILS = [];
+
+function isAdmin() {
+  const emails = ADMIN_EMAILS.map(e => e.toLowerCase());
+  const toCheck = [
+    user.email,
+    user.username,
+    user.idTokenClaims?.preferred_username,
+    user.idTokenClaims?.upn,
+    user.idTokenClaims?.email,
+  ].map(e => (e||'').toLowerCase()).filter(Boolean);
+  return toCheck.some(e => emails.includes(e));
+}
+
+function showAdmin() {
+  ['form-body','already-done','complete-screen'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+  document.getElementById('admin-screen').style.display = 'block';
+  loadAdminData();
+}
+
+function adminGoPage(n) { _adminPage = n; renderAdminTable(); }
+
+function hideAdmin() {
+  document.getElementById('admin-screen').style.display = 'none';
+  document.getElementById('form-body').style.display = 'block';
+}
+
+async function downloadPdf(unused, dlFileName) {
+  try {
+    const t = await getToken();
+    const dPath = 'https://graph.microsoft.com/v1.0/drives/' + driveId;
+    // 폴더 ID 기반 다운로드 (경로 파싱 문제 우회)
+    let dlUrl;
+    if (window._signaturesFolderId) {
+      dlUrl = 'https://graph.microsoft.com/v1.0/sites/' + siteId + '/drives/' + driveId + '/items/' + window._signaturesFolderId + ':/' + encodeURIComponent(dlFileName) + ':/content';
+    } else {
+      dlUrl = 'https://graph.microsoft.com/v1.0/sites/' + siteId + '/drives/' + driveId + '/root:/UATConsents_AttachedFiles/Signatures/' + encodeURIComponent(dlFileName) + ':/content';
+    }
+    const res = await fetch(dlUrl, { headers: { Authorization: 'Bearer ' + t } });
+    if (!res.ok) throw new Error('파일을 찾을 수 없습니다. (' + res.status + ')');
+    const blob = await res.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = dlFileName;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  } catch(e) {
+    alert('다운로드 오류: ' + e.message);
+  }
+}
+
+let _adminAllItems = [];
+let _adminPage = 1;
+const ADMIN_PAGE_SIZE = 20;
+
+async function loadAdminData() {
+  const tbody = document.getElementById('admin-tbody');
+  tbody.innerHTML = '<tr><td colspan="4" class="admin-empty">불러오는 중...</td></tr>';
+  try {
+    const res = await api('/sites/' + siteId + '/lists/' + LIST_NAME + '/items?$expand=fields&$top=500');
+    const items = res.value || [];
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="admin-empty">제출된 동의서가 없습니다</td></tr>';
+      return;
+    }
+    // 최신순 정렬
+    items.sort((a, b) => {
+      // SubmittedAt 있으면 날짜 비교, 없으면 SP 아이템 ID(생성순) 비교
+      const da = a.fields.SubmittedAt ? new Date(a.fields.SubmittedAt).getTime() : (a.id || 0);
+      const db = b.fields.SubmittedAt ? new Date(b.fields.SubmittedAt).getTime() : (b.id || 0);
+      return db - da;
+    });
+    _adminAllItems = items;
+    _adminPage = 1;
+    renderAdminTable();
+    return;
+  } catch(e) {
+    tbody.innerHTML = '<tr><td colspan="4" class="admin-empty">오류: ' + e.message + '</td></tr>';
+    return;
+  }
+}
+
+function renderAdminTable() {
+  const tbody = document.getElementById('admin-tbody');
+  const pgDiv = document.getElementById('admin-pagination');
+  const q = (document.getElementById('admin-search')?.value || '').toLowerCase();
+  const filtered = q
+    ? _adminAllItems.filter(item => {
+        const f = item.fields;
+        const name = (f.EmployeeName || '').toLowerCase();
+        const email = (f.EmployeeEmail || f.Title || '').toLowerCase();
+        return name.includes(q) || email.includes(q);
+      })
+    : _adminAllItems;
+
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / ADMIN_PAGE_SIZE));
+  if (_adminPage > totalPages) _adminPage = 1;
+  const start = (_adminPage - 1) * ADMIN_PAGE_SIZE;
+  const pageItems = filtered.slice(start, start + ADMIN_PAGE_SIZE);
+
+  if (!pageItems.length) {
+    tbody.innerHTML = '<tr><td colspan="4" class="admin-empty">검색 결과가 없습니다</td></tr>';
+    pgDiv.innerHTML = '';
+    return;
+  }
+  let rows = '';
+  for (const item of pageItems) {
+      const f = item.fields;
+      // Title에서 이메일/이름 파싱 (ConsentDetail 없을 경우 대비)
+      // Title 형식: "[2026-04-28] email@domain.com"
+      const titleStr = f.Title || '';
+      const titleMatch = titleStr.match(/^\[([^\]]+)\]\s*([^\s|]+)/);
+      const dateFromTitle = titleMatch ? titleMatch[1] : '';
+      const emailFromTitle = titleMatch ? titleMatch[2].trim() : '';
+      const name = f.EmployeeName || emailFromTitle.split('@')[0] || '-';
+      const email = f.EmployeeEmail || emailFromTitle || '-';
+      const dt = f.SubmittedAt
+        ? new Date(f.SubmittedAt).toLocaleString('ko-KR')
+        : (dateFromTitle || '-');
+      // SignatureFileUrl 없으면 이메일로 파일명 조합 (기존 데이터 대응)
+      let pdfUrl = f.SignatureFileUrl || '';
+      if (!pdfUrl && email) {
+        const safeName = email.replace(/[^a-z0-9]/gi, '_');
+        const dateStr = dateFromTitle || new Date().toISOString().substring(0,10);
+        pdfUrl = 'https://startruckkorea.sharepoint.com/sites/STK-DB/AttachedFiles/UATConsents_AttachedFiles/Signatures/UAT_' + safeName + '_' + dateStr + '.pdf';
+      }
+
+      const dtShort = dt !== '-' ? dt.replace(/^\d{4}\. /,'').replace(/\. /,'/').replace(/\.$/,'') : '-';
+      const safeName = email.replace(/[^a-z0-9]/gi,'_');
+      const fileName = 'UAT_' + safeName + '_' + dateFromTitle + '.pdf';
+
+      rows += `<tr>
+        <td style="font-weight:600">${name||'-'}</td>
+        <td style="color:#64748b">${email||'-'}</td>
+        <td style="font-size:.75rem;color:#94a3b8;white-space:nowrap">${dtShort}</td>
+        <td style="text-align:center">${pdfUrl
+          ? `<button class="admin-pdf-link" onclick="downloadPdf('',this.dataset.fn)" data-fn="${fileName}">⬇ 다운로드</button>`
+          : '<span style="color:#cbd5e0;font-size:.72rem">없음</span>'
+        }</td>
+      </tr>`;
+    }
+  tbody.innerHTML = rows;
+
+  // 페이지네이션
+  let pgHtml = '';
+  if (totalPages > 1) {
+    if (_adminPage > 1) pgHtml += `<button onclick="adminGoPage(${_adminPage-1})" style="padding:5px 12px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-size:.78rem">&#8249;</button>`;
+    for (let i = 1; i <= totalPages; i++) {
+      pgHtml += `<button onclick="adminGoPage(${i})" style="padding:5px 12px;border:1px solid ${i===_adminPage?'#0078d4':'#e2e8f0'};border-radius:8px;background:${i===_adminPage?'#0078d4':'#fff'};color:${i===_adminPage?'#fff':'#374151'};cursor:pointer;font-size:.78rem;font-weight:${i===_adminPage?'700':'400'}">${i}</button>`;
+    }
+    if (_adminPage < totalPages) pgHtml += `<button onclick="adminGoPage(${_adminPage+1})" style="padding:5px 12px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-size:.78rem">&#8250;</button>`;
+  }
+  pgDiv.innerHTML = pgHtml;
+}
+
+// ── 서명 캔버스 ──
+let ctx, drawing = false, lastX = 0, lastY = 0;
+function initCanvas() {
+  const canvas = document.getElementById('sig-canvas');
+  ctx = canvas.getContext('2d');
+  ctx.strokeStyle = '#1e293b';
+  ctx.lineWidth = 2.2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  function pos(e) {
+    const r = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / r.width;
+    const scaleY = canvas.height / r.height;
+    if (e.touches) return { x: (e.touches[0].clientX - r.left) * scaleX, y: (e.touches[0].clientY - r.top) * scaleY };
+    return { x: (e.clientX - r.left) * scaleX, y: (e.clientY - r.top) * scaleY };
+  }
+  function start(e) { e.preventDefault(); drawing = true; const p = pos(e); [lastX, lastY] = [p.x, p.y]; document.getElementById('sign-hint').classList.add('hidden'); }
+  function move(e) {
+    if (!drawing) return; e.preventDefault();
+    const p = pos(e);
+    ctx.beginPath(); ctx.moveTo(lastX, lastY); ctx.lineTo(p.x, p.y); ctx.stroke();
+    [lastX, lastY] = [p.x, p.y];
+  }
+  function end() { if (!drawing) return; drawing = false; isSigned = !isCanvasBlank(canvas); checkSubmitReady(); }
+
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mousemove', move);
+  canvas.addEventListener('mouseup', end);
+  canvas.addEventListener('mouseleave', end);
+  canvas.addEventListener('touchstart', start, { passive: false });
+  canvas.addEventListener('touchmove', move, { passive: false });
+  canvas.addEventListener('touchend', end);
+}
+function isCanvasBlank(canvas) {
+  const blank = document.createElement('canvas');
+  blank.width = canvas.width; blank.height = canvas.height;
+  return canvas.toDataURL() === blank.toDataURL();
+}
+function clearSign() {
+  const canvas = document.getElementById('sig-canvas');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  isSigned = false;
+  document.getElementById('sign-hint').classList.remove('hidden');
+  checkSubmitReady();
+}
+
+// ── 제출 ──
+async function submitForm() {
+  loading(true, '동의서 제출 중...');
+  try {
+    const now = new Date().toISOString();
+    const canvas = document.getElementById('sig-canvas');
+    const sigDataUrl = canvas.toDataURL('image/png');
+
+    // 1. PDF 생성 (동의서 전체 + 서명 포함)
+    loading(true, 'PDF 생성 중...');
+    let pdfBuf = null;
+    let signFileUrl = '';
+    const _dt = new Date(now);
+    const _pad = n => String(n).padStart(2,'0');
+    const _dateStr = now.substring(0,10) + '-' + _pad(_dt.getHours()) + _pad(_dt.getMinutes());
+    const fileName = 'UAT_' + user.email.replace(/[^a-z0-9]/gi,'_') + '_' + _dateStr + '.pdf';
+    try {
+      const formEl = document.getElementById('form-body');
+      const submitArea = formEl.querySelector('.submit-area');
+      if (submitArea) submitArea.style.display = 'none';
+
+      // 전체 폼 캡처
+      const cvs = await html2canvas(formEl, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#f5f7fa',
+        scrollY: -window.scrollY,
+        windowWidth: 860,
+        width: 860
+      });
+      if (submitArea) submitArea.style.display = '';
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      const pageW = pdf.internal.pageSize.getWidth();   // 210mm
+      const pageH = pdf.internal.pageSize.getHeight();  // 297mm
+      const margin = 10;
+      const printW = pageW - margin * 2;                // 190mm
+      // 캔버스 전체를 비율에 맞게 mm로 환산
+      const totalImgH = (cvs.height / cvs.width) * printW;
+      const imgData = cvs.toDataURL('image/jpeg', 0.92);
+
+      // 페이지 슬라이싱: 각 페이지에 잘라서 붙이기
+      const printableH = pageH - margin * 2;
+      let pages = Math.ceil(totalImgH / printableH);
+      for (let i = 0; i < pages; i++) {
+        if (i > 0) pdf.addPage();
+        // 현재 페이지의 y 오프셋(mm)
+        const srcY = i * printableH;
+        // 남은 높이
+        const sliceH = Math.min(printableH, totalImgH - srcY);
+        // addImage: x, y, w, h, alias, compression, rotation
+        // y를 음수로 밀어서 원하는 구간만 보이게
+        pdf.addImage(imgData, 'JPEG', margin, margin - srcY, printW, totalImgH, 'pg'+i, 'FAST');
+        // 현재 페이지 범위 밖 클립 (addImage는 클립 없으므로 흰 rect로 덮기)
+        // 위쪽 덮기
+        pdf.setFillColor(255,255,255);
+        pdf.rect(0, 0, pageW, margin, 'F');
+        // 아래쪽 덮기
+        pdf.rect(0, margin + sliceH, pageW, pageH - (margin + sliceH), 'F');
+        // 좌우 덮기
+        pdf.rect(0, 0, margin, pageH, 'F');
+        pdf.rect(pageW - margin, 0, margin, pageH, 'F');
+      }
+
+      pdfBuf = pdf.output('arraybuffer');
+    } catch(e) { console.warn('PDF 생성 실패, 서명 이미지만 저장:', e.message); }
+
+
+    // 2. PDF → Graph API PUT (driveId 사용)
+    loading(true, '파일 저장 중...');
+    if (pdfBuf) {
+      try {
+        // driveId로 정확한 경로에 PUT
+        const dPath = 'https://graph.microsoft.com/v1.0/drives/' + driveId;
+        // 폴더 ID 기반 업로드 (경로 파싱 문제 우회)
+        let uploadPath;
+        if (window._signaturesFolderId) {
+          // Sites.ReadWrite.All 권한 기반 - site/drive/items 경로
+          uploadPath = 'https://graph.microsoft.com/v1.0/sites/' + siteId + '/drives/' + driveId + '/items/' + window._signaturesFolderId + ':/' + encodeURIComponent(fileName) + ':/content';
+        } else {
+          uploadPath = 'https://graph.microsoft.com/v1.0/sites/' + siteId + '/drives/' + driveId + '/root:/UATConsents_AttachedFiles/Signatures/' + encodeURIComponent(fileName) + ':/content';
+        }
+        const upToken = await getToken();
+        const upRes = await fetch(uploadPath, {
+          method: 'PUT',
+          headers: {
+            'Authorization': 'Bearer ' + upToken,
+            'Content-Type': 'application/pdf'
+          },
+          body: pdfBuf
+        });
+        if (upRes.ok) {
+          const upJson = await upRes.json();
+          signFileUrl = upJson.webUrl || upJson['@microsoft.graph.downloadUrl'] || fileName;
+        } else {
+          const errText = await upRes.text();
+          console.warn('Graph PUT 실패:', upRes.status, errText.substring(0,200));
+          throw new Error('Graph PUT ' + upRes.status);
+        }
+      } catch(e) {
+        console.warn('업로드 실패:', e.message);
+        // 파일명만 저장 (다운로드 시 드라이브에서 찾음)
+        signFileUrl = fileName;
+      }
+    }
+
+    loading(true, '동의 내역 기록 중...');
+    const labels = {
+      r1:'C1_일반수집이용_필수', r2:'C2_일반수집이용_선택',
+      r3:'C3_고유식별수집이용', r4:'C4_민감정보수집이용',
+      r5:'C5_일반제3자제공_필수', r6:'C6_일반제3자제공_선택',
+      r7:'C7_고유식별제3자제공', r8:'C8_일반국외제공',
+      r9:'C9_고유식별국외제공', r10:'C10_최종확인'
+    };
+    const sysMap = {
+      s1:'GA (General Affairs)', s2:'MC (Mobility Car / RR)', s3:'SCC (Contract Checklist)',
+      s4:'GW (Goodwill Approval)', s5:'BP (BP Master Data)', s6:'FA (FA Registration)',
+      s7:'WMC (Weekend Mobility Car)', s8:'IT (IT Ticket)', s9:'APS (통합결재함)',
+      r_final:'최종 확인'
+    };
+    const labelDisplay = sysMap;
+    // 모든 데이터를 Title(제목) 하나에 저장 - 컬럼 추가 불필요
+    // Title: 255자 이내 (SharePoint 제한)
+    const titleStr = ('[' + _dateStr + '] ' + user.email).substring(0, 255);
+
+    // 동의 결과 전체 텍스트 (multiline용)
+    const consentDetail = [
+      '제출자: ' + user.displayName + ' (' + user.email + ')',
+      '제출일시: ' + new Date(now).toLocaleString('ko-KR'),
+      '',
+      ...Object.keys(labelDisplay).map(k => {
+        const v = getVal(k);
+        const prefix = v==='pass'?'[확인] ' : v==='issue'?'[이슈] ' : v==='agree'?'[확인] ' : '[미완료] ';
+        const noteEl = document.getElementById('note_' + k);
+        const note = noteEl && noteEl.value.trim() ? ' → ' + noteEl.value.trim() : '';
+        return prefix + labelDisplay[k] + note;
+      }),
+      '',
+      signFileUrl ? '서명파일: ' + signFileUrl : '서명파일: 없음'
+    ].join('\n');
+
+    // SharePoint 저장 - Title + SignatureFileUrl
+    const fields = { Title: titleStr };
+    // if (signFileUrl) fields.SignatureFileUrl = signFileUrl; // 리스트에 필드 없는 경우 주석처리
+
+    let savedItemId = null;
+    try {
+      const saved = await api('/sites/' + siteId + '/lists/' + LIST_NAME + '/items', 'POST', { fields });
+      savedItemId = saved?.id;
+    } catch(e1) {
+      console.warn('저장 실패:', e1.message);
+      // SignatureFileUrl 없이 재시도
+      try {
+        const saved2 = await api('/sites/' + siteId + '/lists/' + LIST_NAME + '/items', 'POST', { fields: { Title: titleStr } });
+        savedItemId = saved2?.id;
+        // URL은 나중에 PATCH로 추가 시도
+        if (signFileUrl && savedItemId) {
+          try {
+            try { await api('/sites/' + siteId + '/lists/' + LIST_NAME + '/items/' + savedItemId, 'PATCH', { fields: { SignatureFileUrl: signFileUrl } }); } catch(e) { console.warn('SignatureFileUrl PATCH 실패:', e.message); }
+          } catch(e3) { console.warn('URL PATCH 실패:', e3.message); }
+        }
+      } catch(e2) {
+        throw new Error(e2.message);
+      }
+    }
+
+    // 완료 화면
+    document.getElementById('form-body').style.display = 'none';
+    const cs = document.getElementById('complete-screen');
+    cs.style.display = 'block';
+    const valLabel = v => v==='pass'?'확인' : v==='issue'?'이슈 있음' : v==='agree'?'확인' : '미완료';
+    const valIcon  = v => v==='pass'?'✓ ' : v==='issue'?'⚠ ' : v==='agree'?'✓ ' : '✗ ';
+    const lines = Object.keys(labelDisplay).map(k => valIcon(getVal(k)) + labelDisplay[k] + ': ' + valLabel(getVal(k)));
+    document.getElementById('comp-detail').innerHTML =
+      '<b>제출자:</b> ' + user.displayName + ' (' + user.email + ')<br>' +
+      '<b>제출 일시:</b> ' + new Date(now).toLocaleString('ko-KR') + '<br><br>' +
+      lines.join('<br>') +
+      (signFileUrl ? '<br><br><b>서명 파일:</b> 저장 완료' : '');
+    cs.scrollIntoView({ behavior: 'smooth' });
+  } catch(e) {
+    alert('제출 중 오류가 발생했습니다: ' + e.message);
+    console.error(e);
+  }
+  loading(false);
+}
+
+</script>
+</body>
+</html>
